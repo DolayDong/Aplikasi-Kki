@@ -25,7 +25,7 @@
     class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" onclick="window.location.href = '/user/{{ $user->name }}'">
     {{Auth::user()->name}}
     </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" onclick="window.location.href = '/notifikasi'">
+<li class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" onclick="window.location.href = '/notifikasi/{{$user->id}}'">
     Notifikasi
     <span class="badge badge-danger badge-pill">1</span>
     </li>

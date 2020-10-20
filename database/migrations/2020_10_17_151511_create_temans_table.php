@@ -15,7 +15,13 @@ class CreateTemansTable extends Migration
     {
         Schema::create('temans', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('teman_id')->index();
+            $table->integer('berteman_pada');
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('teman_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
 use App\Models\Session;
+use App\Models\Teman;
 use App\Models\Token;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -100,8 +101,9 @@ class AuthController extends Controller
                             'user_agent' => $request->userAgent(),
                             'aktifitas_terakhir' => time()
                         ]);
-                        if ($sessi->save())
+                        if ($sessi->save()){
                             return redirect()->intended('/home');
+                        }
                     }
                 } else {
                     // user belum di aktivasi
@@ -122,10 +124,11 @@ class AuthController extends Controller
 
     public function logout()
     {
-        $sessi = Session::query()->where('user_id', '=', Auth::id())->first();
-        Auth::logout();
-        if($sessi->delete()){
-            return redirect()->intended('/');
-        } 
+        $sessi = Session::query()->where('user_id', '=', Auth::id());
+            Auth::logout();
+            if($sessi->delete()){
+                return redirect()->intended('/');
+            } 
+
     }
 }

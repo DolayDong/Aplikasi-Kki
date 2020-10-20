@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>@yield('judul')</title>
+        
         <style>
             div .online {
                 width: 10px;
@@ -22,6 +23,7 @@
             }
         </style>
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="csrf-token" content="{{csrf_token()}}">
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
    
@@ -29,7 +31,7 @@
     <body>
     <div class="container-fluid">
             <div class="row">
-                <div id="home-kiri" class="col">
+                <div id="home-kiri" class="col .kiri">
                     @yield('kiri')
                 </div>
             
@@ -51,7 +53,9 @@
     </div>
     
         
-        <script src="{{asset('/js/app.js')}}"></script>
+        <script src="{{asset('/js/app.js')}}">
+import PostinganComponent from "@/components/PostinganComponent.vue";
+        </script>
         @yield('script')
     </body>
 </html>

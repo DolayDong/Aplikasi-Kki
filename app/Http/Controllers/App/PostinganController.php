@@ -64,7 +64,7 @@ class PostinganController extends Controller
      */
     public function show(Postingan $postingan)
     {
-        $post = $postingan->user()->get();
+        // $post = $postingan->user()->get();
         return  view('app.detail_', ['gw' => Auth::user(), 'postingan' => $postingan, 'user' => $postingan->user()->get()->first()]);
     }
 
@@ -101,4 +101,6 @@ class PostinganController extends Controller
     {
         //
     }
+
+ 
 }

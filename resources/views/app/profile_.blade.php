@@ -29,16 +29,19 @@
     <body>
     <div class="container-fluid">
             <div class="row">
-                <div id="home-kiri" class="col">
+                <div class="col">
                     <div class="container-fluid">
                         <div class="card">
                         <img src="{{$user->url_image}}" class="card-img-top" alt="{{$user->name}}">
                             <div class="card-body">
                               <h5 class="card-title">{{$user->name}}</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button-add-teman id="buttonaddteman" :gw="{{Auth::user()}}" :user="{{$user}}"></button-add-teman>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                              
                             </div>
-                          </div>
+
+                            <div class="container-fluid text-center py-2 mb-2">
+                                <button-add-teman id="buttonaddteman" :gw="{{$gw}}" :user="{{$user}}" :mengikuti="{{$user->mengikuti() === null ? 'false' : 'true'}}"></button-add-teman>
+                            </div>
+                        </div>
                     </div>
                 </div>
             
@@ -117,6 +120,7 @@
                             <div class="container-fluid">
                                 <span class="text"
                                 >
+                                {{$postingan->caption}}
                                 </span
                                 >
                             </div>
@@ -137,7 +141,7 @@
                         class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" onclick="window.location.href = '/user/{{Auth::user()->name}}'">
                         {{Auth::user()->name}}
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" onclick="window.location.href = '/notifikasi'">
+                    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" onclick="window.location.href = '/notifikasi/{{$user->id}}'">
                         Notifikasi
                         <span class="badge badge-danger badge-pill">1</span>
                         </li>
@@ -163,5 +167,10 @@
     
         
 <script src="{{mix('/js/app.js')}}"></script>
+<script>
+    const buttonaddteman = new Vue({
+        el: "#buttonaddteman"
+    });
+</script>
 </body>
 </html>

@@ -3,8 +3,6 @@
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\App\PostinganController;
 use App\Http\Controllers\App\CommentController;
-use App\Models\Postingan;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +24,9 @@ Route::get('/postingan/{postingan}/comments', [CommentController::class, 'index'
 
 Route::middleware('auth:api')->group(function () {
     Route::post('/postingans/{postingan}/comment', [CommentController::class, 'store']);
+    Route::post('/{user}/tambah_teman', [UserController::class, 'addTeman']);
+    Route::post('/{user}/hapus_teman', [UserController::class, 'hapusTeman']);
+    Route::post('/{postingan}/like', [App\Http\Controllers\Api\PostinganController::class, 'like']);
+    Route::post('/{postingan}/unlike', [App\Http\Controllers\Api\PostinganController::class, 'unlike']);
+    Route::get('/{postingan}/islike', [App\Http\Controllers\Api\PostinganController::class, 'menyukai']);
 });

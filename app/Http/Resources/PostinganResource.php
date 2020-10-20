@@ -20,10 +20,10 @@ class PostinganResource extends JsonResource
             "caption" => $this->caption,
             "url_postingan" => $this->url_image,
             "waktu_diunggah" => $this->diunggah,
-            "user" => [
-                "nama" => $this->user->name,
-                "photo_profile" => $this->user->url_image
-            ]
+            // "user" => [
+            //     "nama" => $this->user->name,
+            //     "photo_profile" => $this->user->url_image
+            // ]
         ];
     }
 }

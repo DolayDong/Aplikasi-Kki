@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\App\AuthController;
+use App\Http\Resources\HomeResource;
+use App\Models\Teman;
 use App\Models\Token;
 use Illuminate\Support\Facades\Hash;
 
@@ -65,8 +67,36 @@ class UserController extends Controller
         }
     }
 
-    public function listteman()
+    public function listteman(User $user)
+   {
+    //    return $user->temans()->with('postingans')->with('teman')->with('session')->get();
+        return HomeResource::collection($user->temans()->with('postingans')->with('teman')->with('session')->get());
+    }
+
+    public function addTeman(User $user)
     {
-        return "Api List Teman";
+        // panggil fungsi tambah teman di model
+        $teman = auth()->user()->tambahTeman($user);
+
+        if ($teman === null) {
+            return response()->json(["message" => " anda sudah berteman"], 500);
+        }
+
+        return response()->json($teman );
+    }
+
+    public function hapusTeman(User $user)
+    {
+        $berteman = $user->mengikuti();
+
+        if ($berteman === null) {
+            return response()->json(["message" => "anda tidak berteman"], 500);
+        }
+
+    
+        if($berteman->delete()){
+            return response()->json(["message" => "berhasil unfollow"], 200);
+        }
+
     }
 }

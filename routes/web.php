@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\App\AuthController;
 use App\Http\Controllers\App\PostinganController;
 use App\Http\Controllers\App\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\App\NotifikasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +31,12 @@ Route::get('/verifikasi', [AuthController::class, 'verifikasi']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth')->group(function () {
+    Route::get('/pesan/{name}', [App\Http\Controllers\App\UserController::class, 'kirimpesan']);
     Route::get('/cariteman', [App\Http\Controllers\App\UserController::class, 'index']);
     Route::get('/home', [HomeController::class, 'index'])->name('/home');
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::post('/posting', [PostinganController::class, 'store']);
     Route::get('/user/{name}', [App\Http\Controllers\App\UserController::class, 'showprofile']);
     Route::get('/postingan/{postingan}', [PostinganController::class, 'show']);
+    Route::get('/notifikasi/{user}', [NotifikasiController::class, 'index']);
 });

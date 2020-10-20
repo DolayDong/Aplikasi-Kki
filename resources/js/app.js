@@ -28,6 +28,8 @@ Vue.component('home-kanan-component', require('./components/HomeKananComponent.v
 Vue.component('modal-add-photo', require('./components/ModalAddPhoto.vue').default);
 Vue.component('commentar-component', require('./components/CommentarComponent.vue').default);
 Vue.component('button-add-teman', require('./components/ButtonAddTeman.vue').default);
+Vue.component('component-kiri-pesan', require('./components/ComponentKiriPesan.vue').default);
+Vue.component('like-komponent', require('./components/LikeComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -61,6 +63,3 @@ const commentarcomponent = new Vue({
     el: "#content"
 });
 
-const buttonaddteman = new Vue({
-    el: "#buttonaddteman"
-});
