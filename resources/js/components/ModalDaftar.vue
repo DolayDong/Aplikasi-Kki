@@ -104,7 +104,7 @@ export default {
                     this.password = undefined;
                     this.email = undefined;
                     this.invalid = {password: ''};
-                    
+                    this.displayButton = 'block';
 
                 }).catch((err) => {
                     this.displayLoading = 'none';

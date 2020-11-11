@@ -1,0 +1,200 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    font-family: 'Patrick Hand', cursive;
+}
+
+
+.photo-profile {
+    width: 30px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 15px;
+}
+
+
+.container-content__ {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-chat {
+    background-color: rgb(201, 2, 201);
+    padding: 1%;
+    display: flex;
+    border-bottom: 2px solid black;
+    justify-content: space-between;
+
+}
+
+.header-chat .online {
+    position: relative;
+    right: -40%;
+
+}
+
+.nama-user:hover {
+    cursor: pointer;
+    color: white;
+    text-decoration: underline;
+}
+
+.fitur {
+    display: flex;
+    width: 10%;
+    align-content: center;
+}
+
+.fitur a {
+    margin: 10%;
+    color: black;
+    text-decoration: none;
+}
+
+.fitur a:hover {
+    cursor: pointer;
+    color: white;
+}
+
+#container-pesan .container-content__ div.content {
+    width: 100%;
+    position: absolute;
+    top: 8.5%;
+    max-height: 82%;
+    overflow-y: auto;
+}
+
+#container-pesan .container-content__ div.footer__ {
+    position: absolute;
+    bottom: 0;
+    padding: 1%;
+    border-top: 2px solid purple;
+    width: 95%;
+}
+
+#container-pesan .container-content__ div.footer__ .container-pesan {
+    width: 100%;
+}
+
+#container-pesan .container-content__ div.footer__ .container-pesan form {
+    display: flex;
+    width: 100%;
+}
+
+#container-pesan .container-content__ div.footer__ .container-pesan form input[type=text] {
+    width: 90%;
+    padding: 1%;
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: purple;
+    font-size: 17px;
+    border-bottom: 2px solid purple;
+    background-color: transparent;
+}
+
+#container-pesan .container-content__ div.footer__ .container-pesan form input[type=text]::-webkit-input-placeholder {
+    font-size: 17px;
+    color: purple;
+
+}
+
+#container-pesan .container-content__ div.footer__ .container-pesan form input[type=file]::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+
+
+#container-pesan .container-content__ div.footer__ .container-pesan form input[type=file] {
+    display: none;
+}
+
+
+#container-pesan .container-content__ div.footer__ .container-pesan form button:hover {
+    color: purple;
+    background-color: transparent;
+    box-shadow: -1px 1px 2px blueviolet;
+    border: 1px solid purple;
+    cursor: pointer;
+
+}
+
+#container-pesan .container-content__ div.footer__ .container-pesan form button {
+    margin-left: 10px;
+    overflow: hidden;
+    padding: 10px;
+    width: 7%;
+    background-color: blueviolet;
+    border: 1px solid black;
+    border-radius: 25px;
+    color: white;
+    outline: none;
+}
+
+.container-choose {
+    margin-left: 10px;
+}
+
+.pesan {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.dari,
+.gw {
+    width: 70%;
+    margin: 5px 5px;
+    padding: 1%;
+    border: 1px solid purple;
+}
+
+.dari {
+    border-radius: 25px 0 25px 25px;
+    background-color: blueviolet;
+    color: white;
+    align-self: flex-end;
+    font-style: italic;
+}
+
+.gw {
+    color: purple;
+    font-weight: bold;
+    border-radius: 25px 25px 25px 0;
+}
+
+.waktu-pesan {
+    text-align: right;
+    margin: 1px auto;
+    color: black;
+}
+
+div#container-pesan {
+    overflow-y: hidden;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+}
+
+.pesanimage {
+    height: 10%;
+    width: 100%;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.video-gw {
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+}
+
+.video-temen {
+    height: 100%;
+    width: 100%;
+}

@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <h3>Teman Aktif</h3>
         <ul class="list-unstyled">
-          <li class="media shadow-sm align-items-center p-2 page-link" v-for="teman in temans" style="cursor: pointer;" @click.prevent="pindahHalamanPesan(teman.teman.nama_teman)">
+          <li class="media shadow-sm align-items-center p-2 page-link" :key="teman.id" v-for="teman in temans" style="cursor: pointer;" @click.prevent="pindahHalamanPesan(teman.teman.nama_teman)">
             <img
               :src="teman.teman.photo_profile"
               class="mr-3 photo-profile"
@@ -70,6 +70,7 @@ export default {
     getListTeman(){
       axios.get('/api/' + this.user.id + '/listteman').then( response => {
         this.temans = response.data.data;
+        console.log(this.temans)
       }).catch( error => {
         console.log("error : " + error); 
       });

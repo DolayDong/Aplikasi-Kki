@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\PesanController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\App\PostinganController;
 use App\Http\Controllers\App\CommentController;
@@ -29,4 +30,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/{postingan}/like', [App\Http\Controllers\Api\PostinganController::class, 'like']);
     Route::post('/{postingan}/unlike', [App\Http\Controllers\Api\PostinganController::class, 'unlike']);
     Route::get('/{postingan}/islike', [App\Http\Controllers\Api\PostinganController::class, 'menyukai']);
+    Route::post('/pesan/{user}/kirimpesan', [PesanController::class, 'insert']);
+    Route::get('/pesans/{id}', [PesanController::class, 'index']);
+
 });

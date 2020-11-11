@@ -127,6 +127,7 @@ class AuthController extends Controller
         $sessi = Session::query()->where('user_id', '=', Auth::id());
             Auth::logout();
             if($sessi->delete()){
+                request()->session()->flush();
                 return redirect()->intended('/');
             } 
 

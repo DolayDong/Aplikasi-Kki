@@ -33,7 +33,10 @@ class UserController extends Controller
     {
         $url = explode("/", $request->path());
         $teman = User::query()->where("name", "=", end($url))->first();
-        
-        return view('app.kirim_pesan_', ["teman" => $teman]);
+        if($teman === null) {
+            return redirect()->back();
+        }
+
+        return view('app.kirim_pesan_', ["teman" => $teman, 'user' => Auth::user()]);
     }
 }

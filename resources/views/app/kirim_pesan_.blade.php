@@ -6,7 +6,13 @@
     <component-kiri-pesan :user="{{Auth::user()}}"></component-kiri-pesan>
 @endsection
 
-@section('kanan')
+@section('tengah')
+    <div id="container-pesan" >
+        <pesan-component :teman="{{$teman}}" :user="{{$user}}">
+        @csrf
+        </pesan-component>
+    </div>
+@endsection
 @section('kanan')
 <ul class="list-group">
     <li
@@ -29,7 +35,6 @@
 </ul>
 @endsection
     
-@endsection
 
 
 
@@ -38,5 +43,12 @@
         const komponentkiripesan = new Vue({
             el: ".kiri"
         });
+        const containerpesan = new Vue({
+            el: "#container-pesan"
+        });
+
+        const modalPreview = new Vue({
+            el: "#modalpreview"
+        })
     </script>
 @endsection 

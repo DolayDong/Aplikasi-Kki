@@ -43,7 +43,7 @@ export default {
     getListTeman(){
       axios.get('/api/' + this.user.id + '/listteman').then( response => {
         this.temans = response.data.data;
-        // console.log(this.temans);
+        console.log(this.temans);
       }).catch( error => {
         console.log("error : " + error); 
       });

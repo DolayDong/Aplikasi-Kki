@@ -5,7 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>@yield('judul')</title>
-        
+        @if (auth()->user())
+            
+        <script>
+            window.csrfToken = "{{csrf_token()}}";
+            </script>
+            @endif
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <style>
             div .online {
                 width: 10px;
@@ -25,7 +31,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="csrf-token" content="{{csrf_token()}}">
-    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
+        <link rel="stylesheet" href="{{asset('/css/app.css')}}">
+        <link rel="stylesheet" href="{{asset('css/chat.css')}}">
    
     </head>
     <body>

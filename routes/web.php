@@ -39,4 +39,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/{name}', [App\Http\Controllers\App\UserController::class, 'showprofile']);
     Route::get('/postingan/{postingan}', [PostinganController::class, 'show']);
     Route::get('/notifikasi/{user}', [NotifikasiController::class, 'index']);
+    Route::post('/pusher/auth', [HomeController::class, 'autentikasi']);
 });

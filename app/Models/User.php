@@ -100,5 +100,15 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Like', 'teman_id', 'id');
     }
 
+    public function pesans()
+    {
+        return $this->hasMany('App\Models\Pesan', 'teman_id', 'id');
+    }
+
+    public function pesan()
+    {
+        return $this->hasOne('App\Models\Pesan', 'user_id', 'id');
+    }
+
 
 }
